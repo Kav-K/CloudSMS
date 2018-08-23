@@ -21,10 +21,7 @@ from newsapi import NewsApiClient
 #Redact the API key if publishing anywhere public pls
 newsapi = NewsApiClient(api_key='REDAC')
 '''
-Apologies for the code that's messy everywhere, that's what happens when you're awake on red bull for 36 hours with no version control. 
-However, we are quite proud that this functions with no major errors that we've picked up on, if you see one, please do send us a message
-so we can get on it, because this will be a continued project after the hackathon.
-PS. YES, We are aware that a lot of the code was also string replacements and they could've been optimized, but we had some issues with regex
+Apologies for the code that's messy everywhere! This was made during a hackathon and thus it's hacky code :) (Working, hacky code)
 '''
 
 
