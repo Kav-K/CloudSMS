@@ -21,6 +21,8 @@ GOOGLE_SEARCH_API_LINK = "https://www.googleapis.com/customsearch/v1?key="+str(G
 TOP_NEWS_AMOUNT = 5
 RELEVANT_NEWS_AMOUNT = 3
 
+
+#Send an individual text-based message
 def send_individual_message(recipient,body):
 
     client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
@@ -29,6 +31,7 @@ def send_individual_message(recipient,body):
         body=body,
         from_=TWILIO_PHONE_NUMBER)
 
+#Send an image as an MMS attachment
 def send_individual_image(recipient,picturepath):
     client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
     message = client.api.account.messages.create(
@@ -36,6 +39,7 @@ def send_individual_image(recipient,picturepath):
         from_=TWILIO_PHONE_NUMBER,
         media_url=picturepath)
 
+#Search google for an image, if found, send to the recipient that requested it
 def find_and_send_image(recipient,query):
 
     url = GOOGLE_SEARCH_API_LINK+query
@@ -132,8 +136,6 @@ def sms_reply():
             except ValueError:
                 resp.message("Failed to fetch image, please ask like: 'image of [image]'")
                 return str(resp)
-
-
 
 
     #If wolfram full results is the only thing we can do, continue with that
